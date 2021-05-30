@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: XmlGenerator
+
+logging:
+  level:
+    root: ERROR 
+
+
+# Below sections are for Xml and Excel Configuration
+# Put the all fields which will be changed in each node.
+excel:
+  fields:
+    - ip
+    - name
+    - fkdomain
+
+
+# Put all fields which you want to have in xml. The older in which the properties are define here, 
+# in same order it will be written to xml
+xml:
+  properties-names:
+    - name
+    - server_type
+    - protocol
+    - host
+    - ip
+    - serverAddr
+    - fkdomain
+    - fkgroup
+    - fkrealm
+    - isTrusted
+    - port
+    - protoType
+    - supportHealthCheck
+    - test-field
+  default-values:
+    - NA
+    - IMS_SERVER_TYPE_IBCF
+    - IP_SERVICE_SIP
+    - inviwb20brm1isbi01mv.ims.mnc067.mcc405.3gppnetwork.org
+    - NA
+    - inviwb20brm1isbi01mv.ims.mnc067.mcc405.3gppnetwork.org
+    - KOFAX
+    - group-ici
+    - realm-ici
+    - 0
+    - 5050
+    - IP_PROTO_ANY
+    - FALSE
+    - Nasib
+
+
+app-arguments:
+  input: "C:/practice/tools/xmlgenerator/src/main/resources/inputNew.xlsx"
+  tabname: 
+  output: "C:/practice/tools/xmlgenerator/target/output.xml"
+ 
