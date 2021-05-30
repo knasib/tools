@@ -15,17 +15,18 @@
 	<description>Xmlgenerator Demo project for Spring Boot</description>
 	<properties>
 		<java.version>8</java.version>
+		<poi.version>3.17</poi.version>
 	</properties>
 	<dependencies>
 		<dependency>
 		    <groupId>org.apache.poi</groupId>
 		    <artifactId>poi</artifactId>
-		    <version>3.9</version>
+		    <version>${poi.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.poi</groupId>
 		    <artifactId>poi-ooxml</artifactId>
-		    <version>3.9</version>
+		    <version>${poi.version}</version>
 		</dependency>
 		<dependency>
             <groupId>commons-cli</groupId>
