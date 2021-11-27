@@ -1,0 +1,51 @@
+#### NOTE ####
+ # 1. Excel must have header
+ # 2. Number of key defined under `xml.keys` must not exceed number of columns in Excel
+ # 3. Excel column1 values will be replaced to the xml node mentioned in key1 inside xml.keys
+ #      column1 mapped to key1, column2 mapped to key2 and so on... 
+
+
+app:
+  #Provide the Input excel file path
+  input: C:\practice\github\tools\xmlgeneratorv2\resources\inputNew1.xlsx
+  #Provide the output file path where you want to write the result
+  output: C:\practice\github\tools\xmlgeneratorv2\target\output.txt
+  console-output: false
+
+
+xml:
+  # Excel column1 maped to <srcRealm> tag, column2 maped to <Priority> tag, column3 mapped to <ConditionTypeCNF> tag  
+  # If you want to update any other xml tag in `template` then there should be one xpath key in below keys
+  keys: 
+  - InitialFilterCriteria/TriggerPoint/SPT/srcRealm
+  - InitialFilterCriteria/Priority
+  - InitialFilterCriteria/TriggerPoint/ConditionTypeCNF
+
+  #change it according your need.  
+  root: "<xmlrootnode></xmlrootnode>" 
+
+  #Place your xml template inside tag <place-your-tag-inside-this> YOUR XLM TEMPLATE HERE </place-your-tag-inside-this>
+  template: "<place-your-tag-inside-this><InitialFilterCriteria>
+                <Priority>15</Priority>
+                <TriggerPoint>
+                  <ConditionTypeCNF>'1'</ConditionTypeCNF>
+                  <SPT>
+                    <Group>0</Group>
+                    <srcRealm>ICI_201</srcRealm>
+                  </SPT>
+                  <SPT>
+                    <Group>'1'</Group>
+                    <netInterfaceType>NET_INTERFACE_ICI</netInterfaceType>
+                  </SPT>
+                </TriggerPoint>
+                <Action>
+                  <DestRoute>
+                    <AppType>TARGET_AS_MESSAGE</AppType>
+                    <destRealm>ICI_201</destRealm>
+                    <destSessionTargetGroupName>ICI_201</destSessionTargetGroupName>
+                  </DestRoute>
+                  <CauseCode>TRR_EXIT</CauseCode>
+                </Action>
+              </InitialFilterCriteria></place-your-tag-inside-this>"
+
+              
