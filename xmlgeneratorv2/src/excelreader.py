@@ -1,7 +1,11 @@
 import pandas
 import src.yamlreader as yamlreader
 
-df = pandas.read_excel(yamlreader.getProperties('app.input'))
+try:
+    df = pandas.read_excel(yamlreader.getProperties('app.input'))
+except FileNotFoundError:
+    print(f"{yamlreader.getProperties('app.input')} does not exist. Update the application.yaml file with correct excel path.")
+    raise Exception(f"{yamlreader.getProperties('app.input')} does not exist.")
 
 def getCellValue(row, column):
     try:
