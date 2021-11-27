@@ -7,7 +7,7 @@
 
 app:
   #Provide the Input excel file path
-  input: C:\practice\github\tools\xmlgeneratorv2\resources\inputNew1.xlsx
+  input: C:\practice\github\tools\xmlgeneratorv2\resources\inputNew.xlsx
   #Provide the output file path where you want to write the result
   output: C:\practice\github\tools\xmlgeneratorv2\target\output.txt
   console-output: false
