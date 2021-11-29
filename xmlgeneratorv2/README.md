@@ -29,5 +29,6 @@ Once all dependencies are installed, perform below steps
 
 1. Update the `input` and `output` keys in application.yaml
 2. Nagivate inside the root directory in command promt.
-3. Run the below command in CMD
+3. Run the below command in CMD.
+
     Command: `python main.py`
