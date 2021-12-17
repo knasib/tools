@@ -2,29 +2,34 @@ import pandas
 import src.yamlreader as yamlreader
 
 try:
-    df = pandas.read_excel(yamlreader.getProperties('app.input'))
+    df = pandas.read_excel(yamlreader.get_properties('app.input'))
 except FileNotFoundError:
-    print(f"{yamlreader.getProperties('app.input')} does not exist. Update the application.yaml file with correct excel path.")
-    raise Exception(f"{yamlreader.getProperties('app.input')} does not exist.")
+    print(
+        f"{yamlreader.get_properties('app.input')} does not exist. Update the application.yaml file with correct "
+        f"excel path.")
+    exit(4)
 
-def getCellValue(row, column):
+
+def get_cell_value(row, column):
     try:
         if pandas.isna(df[df.columns[column]].get(row)):
-            print(f'Cell[{row+2}][{column}] is empty in Excel.')
-        
+            print(f'Cell[{row + 2}][{column}] is empty in Excel.')
+
         value = "" if pandas.isna(df[df.columns[column]].get(row)) else df[df.columns[column]].get(row)
     except IndexError:
-         print(f'Number of key defined under `xml.keys` must not exceed number of columns in Excel. Kindly check the yaml configuration under `xml.keys`')   
+        print(
+            f'Number of key defined under `xml.keys` must not exceed number of columns in Excel. Kindly check the '
+            f'yaml configuration under `xml.keys`')
+    return value
 
-    return value;
 
-def getRow(row):
-    return df.iloc[row]    
+def get_row(row):
+    return df.iloc[row]
 
-def getExcel():
+
+def get_excel():
     return df
 
-def getSize():
-    return len(df)    
 
-#print (len(df))
+def get_size():
+    return len(df)

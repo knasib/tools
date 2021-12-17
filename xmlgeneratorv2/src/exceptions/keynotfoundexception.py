@@ -1,0 +1,3 @@
+
+class KeyNotFoundException(Exception):
+    pass

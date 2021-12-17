@@ -1,13 +1,16 @@
-import xml.etree.ElementTree as ET
-#import yamlreader
+import xml.etree.ElementTree as et
+# import yamlreader
 
-def getXMLTemplateElement(xml_string):
-    return ET.ElementTree(ET.fromstring(xml_string))
+
+def get_xml_template_element(xml_string):
+    return et.ElementTree(et.fromstring(xml_string))
+
 
 def pretty(element):
-    ET.indent(element)
-    return ET.tostring(element, encoding='unicode')
+    et.indent(element)
+    return et.tostring(element, encoding='unicode')
 
-#uglyxml = yamlreader.getProperties("xml.template")
-#xml = pretty(getXMLTemplateElement(uglyxml))
-#print(xml)
+
+# ugl_xml = yamlreader.get_properties("xml.template")
+# xml = pretty(get_xml_template_element(ugl_xml))
+# print(xml)
