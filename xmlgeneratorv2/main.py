@@ -1,8 +1,7 @@
 import os
-import src.xmlutility as xml_utility
-import src.yamlreader as yamlreader
-import src.excelreader as excelreader
-from src.exceptions.keynotfoundexception import KeyNotFoundException
+from xmlgeneratorv2.src import xmlutility
+from xmlgeneratorv2.src import yamlreader
+from xmlgeneratorv2.src import excelreader
 
 
 class XMLGenerator:
@@ -15,7 +14,7 @@ class XMLGenerator:
 
     def get_xml_template(self):
         xml = yamlreader.get_properties('xml.template')
-        template = xml_utility.get_xml_template_element(xml)
+        template = xmlutility.get_xml_template_element(xml)
         return template
 
     def validate_keys(self, keys, template):
@@ -35,7 +34,7 @@ class XMLGenerator:
         for row_index in range(excelreader.get_size()):
             element = self.get_element_for_excel_row(row_index, keys, root_template)
             root.append(element)
-        return xml_utility.pretty(root)
+        return xmlutility.pretty(root)
 
     def get_element_for_excel_row(self, row_index, keys, template):
         for key_index in range(len(keys)):

@@ -1,5 +1,5 @@
 import pandas
-import src.yamlreader as yamlreader
+from xmlgeneratorv2.src import yamlreader
 
 try:
     df = pandas.read_excel(yamlreader.get_properties('app.input'))
